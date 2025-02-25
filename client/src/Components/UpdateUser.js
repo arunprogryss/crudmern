@@ -7,6 +7,7 @@ function UpdateUser() {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [dob,setDob]=useState("")
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -17,6 +18,7 @@ function UpdateUser() {
         console.log(result.data);
         setEmail(result.data.email);
         setName(result.data.name);
+        setDob(result.data.dob)
         setPhone(result.data.phone);
         setPassword(result.data.password);
       })
@@ -28,7 +30,7 @@ function UpdateUser() {
 
   const updateHandle = (id) => {
     axios
-      .put(`http://localhost:8080/api/updateUser/${id}`,{email,name,phone,password})
+      .put(`http://localhost:8080/api/updateUser/${id}`,{email,name,dob,phone,password})
       .then(result => {
         console.log("User updated successfully!"+result.data);
         navigate("/home");
@@ -38,9 +40,19 @@ function UpdateUser() {
   
 
   return (
-    <div className="container my-3">
-      <h2 className="mb-2">Update User</h2>
+    <div className="container my-3 w-50 border border-success">
+      <h2 className="mb-2 text-center">update User!</h2>
       <div>
+        <div className="mb-3">
+          <label className="form-label">Name</label>
+          <input
+            type="text"
+            className="form-control"
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
         <div className="mb-3">
           <label className="form-label">Email</label>
           <input
@@ -52,13 +64,14 @@ function UpdateUser() {
           />
         </div>
         <div className="mb-3">
-          <label className="form-label">Name</label>
+          <label className="form-label">Date of Birth</label>
           <input
             type="text"
             className="form-control"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="dob"
+            value={dob}
+            onChange={(e) => setDob(e.target.value)}
+            placeholder="yy-mm-dd"
           />
         </div>
         <div className="mb-3">

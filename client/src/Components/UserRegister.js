@@ -5,6 +5,7 @@ import axios from "axios";
 function UserRegister() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [dob,setDob]=useState("")
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -18,6 +19,7 @@ function UserRegister() {
         {
           name,
           email,
+          dob,
           phone,
           password,
         }
@@ -30,8 +32,8 @@ function UserRegister() {
   }
 
   return (
-    <div className="container-sm my-3">
-      <h2 className="mb-2">Register</h2>
+    <div className="container-sm my-3 w-25 border border-primary">
+      <h2 className="mb-2">User Register!</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
@@ -44,6 +46,7 @@ function UserRegister() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            placeholder="arun"
           />
         </div>
 
@@ -58,9 +61,21 @@ function UserRegister() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+             placeholder="arun@gmail.com"
           />
         </div>
-
+        <div className="mb-3">
+          <label htmlFor="dob" className="form-label">
+            DOB
+          </label>
+          <input
+            type="date"
+            className="form-control"
+            id="date"
+            value={dob}
+            onChange={(e) => setDob(e.target.value)}
+          />
+        </div>
         <div className="mb-3">
           <label htmlFor="phone" className="form-label">
             Phone
@@ -73,6 +88,7 @@ function UserRegister() {
             onChange={(e) => setPhone(e.target.value)}
             required
             pattern="[0-9]{10}"
+             placeholder="9614343430"
           />
           <small className="text-muted">Enter a 10-digit phone number</small>
         </div>
@@ -89,6 +105,7 @@ function UserRegister() {
             onChange={(e) => setPassword(e.target.value)}
             required
             minLength={6}
+             placeholder="Arun@123"
           />
         </div>
 

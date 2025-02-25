@@ -10,6 +10,9 @@ const userScheme = mongoose.Schema({
     required: true,
     unique: true,
   },
+  dob:{
+    type:Date,
+  },
   phone: {
     type: String,
     required: true,

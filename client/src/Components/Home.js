@@ -31,33 +31,37 @@ function Home() {
   };
   //
   return (
-    <div className="container my-3">
-      <h2 className="mb-2">
-        welcome to home page!{" "}
-        <span>
+    <div className="container my-3 border border-warning">
+      <h2 className="mb-2 text-center ">
+      welcome to home page!
+        <span className="m-5">
           <NavLink to="/" className="btn btn-primary">
-            add uesr to home
+            add uesr
           </NavLink>
-        </span>{" "}
+          </span>
+        
       </h2>
 
       <table border={1} className="table">
-        <thead className="thead">
+        <thead className="text-center border border-secondary">
           <tr>
-            <td>s_no.</td>
-            <td>name</td>
-            <td>email</td>
+            <td >s_no.</td>
+            <td className="border border-secondary">name</td>
+            <td >email</td>
+            <td className="border border-secondary">date of birth</td>
             <td>phone</td>
-            <td>password</td>
+            <td className="border border-secondary">password</td>
+            <td >operations</td>
           </tr>
         </thead>
-        <tbody className="tbody">
+        <tbody className="text-center border border-secondary">
           {user.map((e, index) => {
             return (
               <tr>
                 <td>{index + 1}</td>
                 <td>{e.name}</td>
                 <td>{e.email}</td>
+                <td>{e.dob}</td>
                 <td>{e.phone}</td>
                 <td>{e.password}</td>
 
@@ -66,7 +70,7 @@ function Home() {
                 </NavLink>
 
                 <button
-                  className="btn btn-danger"
+                  className="btn btn-danger m-1"
                   onClick={() => handleDelete(e._id)}
                 >
                   Delete
