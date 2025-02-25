@@ -36,7 +36,7 @@ function Home() {
         welcome to home page!{" "}
         <span>
           <NavLink to="/" className="btn btn-primary">
-            add uesr
+            add uesr to home
           </NavLink>
         </span>{" "}
       </h2>
